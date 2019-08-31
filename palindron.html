@@ -1,0 +1,90 @@
+<html >
+<head>
+    <title>Palindron</title>
+    <style>
+            .button {
+                background: linear-gradient(to right, #698ea0, #027035);
+                color: white;
+                --width: 8em;
+                --height: calc(var(--width) / 3);
+                width: var(--width);
+                height: var(--height);
+                text-align: center;
+                line-height: var(--height);
+                font-size: calc(var(--height) / 2.5);
+                font-family: sans-serif;
+                letter-spacing: 0.2em;
+                border: 1px solid #0f3e1a;
+                border-radius: 2em;
+                transform: perspective(500px) rotateY(-15deg);
+                text-shadow: 6px 3px 2px rgba(0, 0, 0, 0.2);
+                box-shadow: 2px 0 0 5px rgba(0, 0, 0, 0.2);
+                transition: 0.5s;
+                position: relative;
+                overflow: hidden;
+                margin:1.5em;
+            }
+
+            .button:hover {
+                transform: perspective(500px) rotateY(20deg);
+                text-shadow: -6px 3px 2px rgba(0, 0, 0, 0.2);
+                box-shadow: -2px 0 0 5px rgba(0, 0, 0, 0.2);
+            }
+            .button::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to right, transparent, white, transparent);
+                left: -100%;
+                transition: 0.5s;
+            }
+
+            .button:hover::before {
+                left: 100%;
+            }
+
+        .text {
+            width: 4em;
+            margin: 2em;
+            font-size: 2.4em;
+            border: 1px solid #0f3e1a;
+            color: #000000;
+            background: #C8E8E9;
+            text-align: center;
+            text-shadow: 6px 3px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 2px 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        .text:hover {
+            transform: perspective(500px) rotateY(4deg);
+            text-shadow: -6px 3px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: -2px 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .bg {
+            background: linear-gradient(to right,#027035,#755f9e);
+            height: 14em;
+        }
+    </style>
+    <script>	
+        function CheckPalindrom() {
+            str = document.getElementById("txt").value;
+            str = str.replace(/I/g, 'ý');
+            str = str.replace(/Ý/g, 'i');
+            str = str.toLowerCase();
+            if (str == str.split('').reverse().join('')) {
+                alert(str + " Palindromdur")
+                return false
+            }
+            else alert(str + " Palindrom Deðildir")
+            return false
+        }
+    </script>
+</head>
+<body class="bg">
+ 
+        <input class="text" id="txt" type="text"  >
+        <input class="button" id="btnKontrol" type="button" value="Kontrol Et"  onclick="CheckPalindrom()">
+
+</body>
+</html>

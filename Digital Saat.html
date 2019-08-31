@@ -1,0 +1,48 @@
+<html>
+   <head>
+      <title>Dijital Saat</title>
+      <style >
+         #div { 
+		         font-size:4em;
+		         font-weight:bold; 
+		         text-align:center; 
+                 margin:3em;
+		         color:black;
+                 background:center;
+                 background-color:cadetblue;
+                 margin-top:-1.7em
+               }
+          .p {
+                  margin: 2.7em;
+                  font-size: 3.5em;
+                  text-align: center;
+                  background: cadetblue;
+                  border: 1em;
+                  color: white;
+                }
+          .bg {
+                  background: linear-gradient(to right,#027035,#020F7D);
+                  height: 14em;
+              }
+      </style>
+      <script >
+         function digitalsaat()
+         {
+               var saat;
+               var simdi = new Date();
+               var saaat = simdi.getHours();
+               var dak = simdi.getMinutes();
+               var sny = simdi.getSeconds();
+               saat = saaat + ':' + ((dak<10) ? '0' : '') + dak + ':' + ((sny<10) ? '0' : '') + sny ;
+               div.innerHTML = saat
+               setTimeout("digitalsaat()", 1000); // Saniyelik Güncelle
+         }
+      </script>
+   </head>
+   <body onload="digitalsaat()" class="bg">
+       <div><p class="p" > Saat</p>
+       </div>
+       <div id="div">
+       </div>       
+   </body>
+</html>

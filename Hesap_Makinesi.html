@@ -1,0 +1,107 @@
+﻿<html>
+<head>
+    <title>Hesap Makinesi</title>
+    <script>
+        function Add(num) {
+            document.getElementById("txt").value = document.getElementById("txt").value + num;
+        }
+        function Equal() {
+            var exp = document.getElementById("txt").value;
+            if (exp){
+                document.getElementById("txt").value=eval(exp);
+            }
+        }
+        function x() {
+            document.getElementById("txt").value="";
+        }
+        function Delete() {
+            var exp = document.getElementById("txt").value;
+            document.getElementById("txt").value = exp.substring(0,exp.length-1);
+        }
+    </script>
+    <style>
+  
+        .table{
+            width:31px;
+            margin:5px auto;
+            background:#663399;
+            border:5px;
+            border-radius:1px;
+            
+        }
+        .button{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            margin: 2px;
+            cursor: pointer;
+            background: #698ea0;
+            border: none;
+            color: white;
+        }
+        .text {
+            width: 230px;
+            margin: 5px;
+            font-size: 25px;
+            padding: 5px;
+            border-bottom: 15px;
+            border-color:white;
+            color: #698ea0;
+            background: #C8E8E9
+           
+        }
+        .main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%)translateY(-50%);
+        }
+        .bg {
+            background: linear-gradient(to right,#027035,#020F7D);
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+    
+    </div>
+    <div class="main">
+        <h1>Hesap Makinesi</h1>
+      
+            <input class="text"  id="txt"  type="text" >
+
+            <table class="table">
+                <tr>
+                    <td><input class="button" type="button" value="C" onclick="x()" style="background:#AD151E;"></td>
+                    <td><input class="button" type="button" value="<" onclick="Delete()"></td>
+                    <td><input class="button" type="button" value="/" onclick="Add('/')"></td>
+                    <td><input class="button" type="button" value="*" onclick="Add('*')"></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" value="7" onclick="Add(7)"></td>
+                    <td><input class="button" type="button" value="8" onclick="Add(8)"></td>
+                    <td><input class="button" type="button" value="9" onclick="Add(9)"></td>
+                    <td><input class="button" type="button" value="-" onclick="Add('-')"></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" value="4" onclick="Add(4)"></td>
+                    <td><input class="button" type="button" value="5" onclick="Add(5)"></td>
+                    <td><input class="button" type="button" value="6" onclick="Add(6)"></td>
+                    <td><input class="button" type="button" value="+" onclick="Add('+')"></td>
+                </tr>
+                <tr>
+                    <td> <input class="button" type="button" value="1" onclick="Add(1)"> </td>
+                    <td> <input class="button" type="button" value="2" onclick="Add(2)"> </td>
+                    <td> <input class="button" type="button" value="3" onclick="Add(3)"></td>
+                    <td rowspan="2"> <input class="button" style="height: 106px; background:green;" type="button" value="=" onclick="Equal('=')"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <input class="button" style="width: 106px" type="button" value="0" onclick="Add(0)"> </td>
+                    <td> <input class="button" type="button" value="." onclick="Add('.')"> </td>
+                </tr>
+            </table>
+        
+    </div>
+</body>
+</html>

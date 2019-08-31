@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+ 
+<head>
+<meta charset="utf-8">
+<title>Fareyi Takip Eden Kutu</title>
+ 
+<style>
+body{
+background: #3C3741;
+}
+#kutu{
+background: #F55B03;
+width: 200px;
+height: 200px;
+border-radius: 50%;
+position: absolute;
+}
+</style>
+</head>
+ 
+<body>
+<div id="kutu">
+</div>
+ 
+<script>
+/*script etiketini body kapatma etiketinden hemen önce yazdım.
+hız ve nesnelerin yüklenmesi açısından kullanılan bir yöntemdir.*/
+var kutu=document.getElementById("kutu");
+kutu.style.position="absolute"; //nesnenin hareket edebilmesi için position değeri absolute olmak zorunda
+window.onmousemove=function(e){
+kutu.style.left=e.clientX+"px";
+kutu.style.top=e.clientY+"px";
+//console.log(e.offsetX);
+}
+</script>
+</body>
+ 
+</html>
