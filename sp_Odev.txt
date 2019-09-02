@@ -1,0 +1,27 @@
+
+
+CREATE procedure [dbo].[sp_A]
+@X int,
+@Y int
+as
+begin declare @sonuc int;
+set @sonuc=@X+@Y;
+end
+
+return @sonuc;
+
+
+
+CREATE procedure [dbo].[sp_B]
+@X int,
+@Y int 
+as
+
+begin declare @sonuc2 int , @sonuc3 int;
+exec @sonuc2= dbo.sp_A @X , @Y;
+set @sonuc3=@sonuc2;
+end
+select @sonuc3 As sonuc, @X as X, @Y as Y;
+ 
+
+exec sp_B 123,456
